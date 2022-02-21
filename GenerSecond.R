@@ -12,6 +12,16 @@ ttyadd <- ifelse(ttxadd > -90, rnorm(StudentNum, -200, sd = 50), rnorm(StudentNu
 GeodII.df$x2 <- GeodII.df$x + round(ttxadd, 2)
 GeodII.df$y2 <- GeodII.df$y + round(ttyadd, 2)
 
+## Quick check
+par(mfrow = c(5,2), mar = c(1.1,2.1,1.1,2.1))
+for(aktStudentNum in 1:StudentNum) {
+    plot(c(GeodII.df[aktStudentNum, "x"], GeodII.df[aktStudentNum, "x2"]),
+         c(GeodII.df[aktStudentNum, "y"], GeodII.df[aktStudentNum, "y2"]), asp = TRUE)
+    mtext(paste0(aktStudentNum, ".2"), at = 0)
+    text(GeodII.df[aktStudentNum, "x"], GeodII.df[aktStudentNum, "y"], "P", adj = c(0,0))
+    text(GeodII.df[aktStudentNum, "x2"], GeodII.df[aktStudentNum, "y2"], "Q", adj = c(0,0))
+}
+
 pdf(paper = "a4", width = 19.5/2.54, height = 28.5/2.54)
 par(mfrow = c(5,2), mar = c(1.1,2.1,1.1,2.1))
 for(aktStudentNum in 1:StudentNum) {
