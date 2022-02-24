@@ -5,5 +5,8 @@ second.geod <- function(P.coord, Q.coord) {
     dist <- sqrt(delta.x^2 + delta.y^2)
     radian.angle <- atan2(delta.y, delta.x)
     angle <- (180 / pi) * radian.angle
+    if(angle < 0) {
+        angle <- angle + 360
+    }
     data.frame(dist = dist, angle = angle)
 }
