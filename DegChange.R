@@ -1,6 +1,16 @@
-simple.to.deg <- function(simple.angle) {
+simple.to.deg <- function(x) {
+    if(is.character(x)) {
+        simple.angle.asc <- unlist(strsplit(x, split = "-"))
+        simple.angle <- as.numeric(simple.angle.asc)
+    } else {
+        if(length(x) == 3) {
+            simple.angle  <- x
+        } else {
+            stop("x length not equal to 3")
+        }
+    }
     deg <- simple.angle[1] + (simple.angle[2] + simple.angle[3] / 60 ) / 60
-    as.numeric(deg)
+    deg
 }
 
 deg.to.simple <- function(deg.angle) {
