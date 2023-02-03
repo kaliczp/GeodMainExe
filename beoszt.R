@@ -11,10 +11,10 @@ beoszt <- function(deg) {
     deg.whole <- trunc(deg)
     deg.fract <- deg - deg.whole
     axis(3, deg.fract * 60, tck=1, lab = deg.whole, cex.axis = 1.5)
-    if(deg.fract < 0.2) {
+    if(deg.fract < 0.3) {
         deg.plus <- ifelse(deg.whole == 1, 0, deg.whole - 1)
         axis(3, (deg.fract + 1) * 60, tck=1, lab = deg.plus, cex.axis = 1.5)
-    } else if (deg.fract > 0.8) {
+    } else if (deg.fract > 0.7) {
         deg.minus <- ifelse(deg.whole == 359, 0, deg.whole +1)
         axis(3, (deg.fract - 1) * 60, tck=1, lab = deg.minus, cex.axis = 1.5)
     }
