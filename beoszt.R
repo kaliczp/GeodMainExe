@@ -2,14 +2,21 @@ beoszt <- function(deg) {
     hatar <- data.frame(fok = c(-10,70), lat = c(0,30))
     plot(lat ~ fok, hatar, asp = 0.7, axes = FALSE,
          type = "n", xlab = "", ylab = "")
-    for(akt in 0:6) {
-        axis(1, akt * 10, tck=0.5, lab = FALSE)
-    }
-    text((0:6)*10, 20, 0:6)
-    for(akt in 0:5)
-        axis(1, akt * 10 + 5, tck=0.3, lab = FALSE)
-    for(akt in -3:63)
-        axis(1, akt, tck=0.2, lab = FALSE)
+    ### Plot microscope scale
+    ## Small segments
+    segments(-3:63, 10, -3:63, 20)
+    ## Generate ten minutes
+    ten.degs <- (0:6)*10
+    ## Minutes text
+    text(ten.degs, 30, 0:6)
+    ## Ten minutes segments
+    segments(ten.degs, 20, ten.degs, 25)
+    ## Five minutes segments
+    segments(ten.degs[-length(ten.degs)] + 5,
+             20,
+             ten.degs[-length(ten.degs)] + 5,
+             23)
+    ## Angle manipulation
     deg.whole <- trunc(deg)
     deg.fract <- deg - deg.whole
     axis(3, deg.fract * 60, tck=1, lab = deg.whole, cex.axis = 1.5)
