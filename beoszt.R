@@ -47,8 +47,8 @@ for(fok in 10:20) {
                            ifelse(perc < 10, paste0("0", perc), perc),
                            ifelse(msdp < 10, paste0("0", msdp), msdp),
                            sep="-")
-            jpeg(paste0("movie/", fname,".jpg"), width = 854, height = 480, pointsize = 24)
-            par(mar = c(1,0,4,0))
+            png(paste0("movie/", fname,".png"), width = 854, height = 480, pointsize = 24)
+            par(mar = c(0,0,5,0))
             akt.szog <- simple.to.deg(data.frame(deg = fok, min = perc, sec = msdp))
             beoszt(akt.szog)
             dev.off()
@@ -56,4 +56,4 @@ for(fok in 10:20) {
     }
 }
 
-# ffmpeg -framerate 30 -pattern_type glob -i '*.jpg' -c:v libx264 -pix_fmt yuv420p out.mp4
+# ffmpeg -framerate 30 -pattern_type glob -i '*.png' -c:v libx264 -pix_fmt yuv420p out.mp4
