@@ -47,7 +47,7 @@ for(fok in 10:20) {
                            ifelse(perc < 10, paste0("0", perc), perc),
                            ifelse(msdp < 10, paste0("0", msdp), msdp),
                            sep="-")
-            png(paste0("movie/", fname,".png"), width = 854, height = 480, pointsize = 24)
+            png(paste0("movie/", fname,".png"), width = 1280, height = 720, pointsize = 24)
             par(mar = c(0,0,5,0))
             akt.szog <- simple.to.deg(data.frame(deg = fok, min = perc, sec = msdp))
             beoszt(akt.szog)
