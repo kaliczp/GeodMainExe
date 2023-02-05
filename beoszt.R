@@ -51,6 +51,7 @@ for(fok in 10:20) {
             par(mar = c(0,0,5,0))
             akt.szog <- simple.to.deg(data.frame(deg = fok, min = perc, sec = msdp))
             beoszt(akt.szog)
+            mtext(fname, adj = 0.01, line = 4)
             dev.off()
         }
     }
